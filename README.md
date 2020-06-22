@@ -16,6 +16,8 @@ I have tested the same with [Anaconda](https://anaconda.org), but i was not happ
 With homebrew you can easely add the library to yur project (Thx to [Botje on stackoverflow](https://stackoverflow.com/questions/59229392/how-can-i-edit-a-cmakelist-txt-file-on-clion-to-take-ldflags-and-cppflags)).
 I think, this is generally a good practice to including libraries from homebrew packages.
 
+This example use C++17.
+
 
 
 ## Platform tested
@@ -130,3 +132,33 @@ In my case i use [CLion](https://www.jetbrains.com/clion/) from Jetbrains for th
 
 Build finished
 ```
+
+
+## Usage
+
+```shell script
+jwtclivalitation  Argument1 Argument2 [Argument3]
+jwtclivalidation  <issuer>  <jwt>     <private_key>  
+jwtclivalidation  https://<keycloak>/auth/realms/<realm> <token>
+```
+
+If private key beginning with a slash '/' or tilde '~', then will this as path used. Or else as key string.
+If this argument empty, then will search for a file 'jwt.key' in the current home folder.  
+
+
+## Keycloak
+
+On Keycloak you should generate your owen key. Log in as Admin and add the private key.  
+You have to generate a PEM key.  
+
+Look this example:  
+```shell script
+ssh-keygen -t rsa -b 4096 -m PEM -f jwt.key
+openssl rsa -in jwt.key -pubout -outform PEM -out jwt.pub
+```
+
+
+## Ideas and more...
+
+You are welcome!  
+You have Cmake settings for other platforms and necessary dependencies, then submit this :)
