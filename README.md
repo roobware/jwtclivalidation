@@ -38,7 +38,8 @@ This example use C++17.
 
 ### Packages
 
-`pacman -S base-devel linux-headers`
+`pacman -S cmake base-devel linux-headers`  
+Use the right header files (`uname -r`).  
 
 ### Compile
 
